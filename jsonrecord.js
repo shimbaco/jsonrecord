@@ -10,7 +10,6 @@
    */
 
   JsonRecord.Model = function (properties) {
-    //console.log(properties);
     this.properties = properties;
   };
 
@@ -51,7 +50,6 @@
     },
 
     eq: function (condition) {
-      console.log('Model.eq called');
       return this._newQuery().eq(condition);
     },
 
@@ -60,7 +58,6 @@
     },
 
     limit: function (condition) {
-      console.log('Model.limit called');
       return this._newQuery().limit(condition);
     },
 
@@ -87,8 +84,6 @@
      */
 
     update: function (docId, data, callback) {
-      console.log('JsonRecord.Model.update called');
-      //console.log('docType: ' + this.prototype.name);
       $.ajax({
           type: 'PUT'
         , url: '/_je/' + this.prototype.name
@@ -146,7 +141,6 @@
      */
 
     isValid: function () {
-      //console.log('isValid() called');
       var properties = this.properties
         , schema = this.schema
         , errors = [];
@@ -165,9 +159,7 @@
             errors.push(property + 'は必須項目です');
           }
           if (option === 'type') {
-            //console.log(optionValue);
             if (optionValue === JsonRecord.Types.Email) {
-              //console.log(JsonRecord.Types.Email.regex);
               if (!value.match(JsonRecord.Types.Email.regex)) {
                 errors.push(property + 'はEmailの形式ではありません');
               }
@@ -205,7 +197,6 @@
     },
 
     eq: function (condition) {
-      console.log('Query.prototype.eq called');
       var key = _.keys(condition)[0]
         , value = condition[key]
         , separator = this._prepareSeparator();
@@ -230,7 +221,6 @@
     },
 
     limit: function (condition) {
-      console.log('Query.prototype.limit called');
       var separator = this._prepareSeparator();
 
       this.conditionsString = this.conditionsString + separator + 'limit=' + condition;
@@ -249,7 +239,6 @@
 
     remove: function (callback) {
       var self = this;
-      console.log(self.conditionsString);
       self.get(function (data) {
         var ajax = function (doc) {
           $.ajax({
@@ -267,7 +256,6 @@
         } else {
           ajax(data);
         }
-        //console.log(data);
       });
     },
 
