@@ -42,5 +42,3 @@ Task.eq({ _docId: '2WngPsQfbAyZ06KKWYSw7R3xrlcSiZE7' }).remove(function () {});
 
 TODO
 -------
-
-- テスト
