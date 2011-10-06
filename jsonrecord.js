@@ -159,8 +159,8 @@
             errors.push(property + 'は必須項目です');
           }
           if (option === 'type') {
-            if (optionValue === JsonRecord.Types.Email) {
-              if (!value.match(JsonRecord.Types.Email.regex)) {
+            if (optionValue === JsonRecord.Type.Email) {
+              if (!value.match(JsonRecord.Type.Email.regex)) {
                 errors.push(property + 'はEmailの形式ではありません');
               }
             }
@@ -265,10 +265,10 @@
   });
   
 
-  JsonRecord.Types = function () {};
+  JsonRecord.Type = function () {};
 
-  JsonRecord.Types.Email = function () {};
-  _.extend(JsonRecord.Types.Email, {
+  JsonRecord.Type.Email = function () {};
+  _.extend(JsonRecord.Type.Email, {
     regex: /^[a-z0-9!#\$%&'\*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#\$%&'\*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i
   });
 })();

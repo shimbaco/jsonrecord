@@ -53,7 +53,7 @@ test('#isValid', function () {
   var Post = JsonRecord.Model.define('test_posts', {
     body1: { type: String, required: true },
     body2: { type: String, length: 3 },
-    email: { type: JsonRecord.Types.Email },
+    email: { type: JsonRecord.Type.Email },
     num: { type: Number }
   });
 
